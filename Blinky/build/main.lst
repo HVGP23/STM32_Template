@@ -1,0 +1,106 @@
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccImmsGW.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Blinky/Core/Src/main.c"
+  20              		.section	.text.main,"ax",%progbits
+  21              		.align	1
+  22              		.global	main
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	main:
+  28              	.LFB130:
+   1:Blinky/Core/Src/main.c **** /*  Author: Jacob Clarey
+   2:Blinky/Core/Src/main.c ****  *  Date: 8/16/2023
+   3:Blinky/Core/Src/main.c ****  *  Description: Basic blinking LD2 program
+   4:Blinky/Core/Src/main.c ****  *  Notes: N/A
+   5:Blinky/Core/Src/main.c ****  */
+   6:Blinky/Core/Src/main.c **** 
+   7:Blinky/Core/Src/main.c **** #include "blink.h"
+   8:Blinky/Core/Src/main.c **** #include <stm32f446xx.h>
+   9:Blinky/Core/Src/main.c **** 
+  10:Blinky/Core/Src/main.c **** int main(void)
+  11:Blinky/Core/Src/main.c **** {
+  29              		.loc 1 11 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33 0000 80B5     		push	{r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 7, -8
+  37              		.cfi_offset 14, -4
+  38 0002 00AF     		add	r7, sp, #0
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_register 7
+  12:Blinky/Core/Src/main.c ****   GPIO_Init();
+  41              		.loc 1 12 3
+  42 0004 FFF7FEFF 		bl	GPIO_Init
+  13:Blinky/Core/Src/main.c ****   SysTick_Init();
+  43              		.loc 1 13 3
+  44 0008 FFF7FEFF 		bl	SysTick_Init
+  45              	.L2:
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccImmsGW.s 			page 2
+
+
+  14:Blinky/Core/Src/main.c ****   while (1)
+  15:Blinky/Core/Src/main.c ****   {
+  16:Blinky/Core/Src/main.c ****     GPIOA->ODR ^= 1 << 5;
+  46              		.loc 1 16 10
+  47 000c 054B     		ldr	r3, .L3
+  48 000e 5B69     		ldr	r3, [r3, #20]
+  49 0010 044A     		ldr	r2, .L3
+  50              		.loc 1 16 16
+  51 0012 83F02003 		eor	r3, r3, #32
+  52 0016 5361     		str	r3, [r2, #20]
+  17:Blinky/Core/Src/main.c ****     delayMS(1000);
+  53              		.loc 1 17 5 discriminator 1
+  54 0018 4FF47A70 		mov	r0, #1000
+  55 001c FFF7FEFF 		bl	delayMS
+  16:Blinky/Core/Src/main.c ****     delayMS(1000);
+  56              		.loc 1 16 16
+  57 0020 00BF     		nop
+  58 0022 F3E7     		b	.L2
+  59              	.L4:
+  60              		.align	2
+  61              	.L3:
+  62 0024 00000240 		.word	1073872896
+  63              		.cfi_endproc
+  64              	.LFE130:
+  66              		.text
+  67              	.Letext0:
+  68              		.file 2 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+  69              		.file 3 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+  70              		.file 4 "Blinky/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+  71              		.file 5 "Blinky/Core/Inc/blink.h"
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccImmsGW.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 main.c
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccImmsGW.s:21     .text.main:00000000 $t
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccImmsGW.s:27     .text.main:00000000 main
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccImmsGW.s:62     .text.main:00000024 $d
+
+UNDEFINED SYMBOLS
+GPIO_Init
+SysTick_Init
+delayMS

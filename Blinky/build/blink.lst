@@ -1,0 +1,279 @@
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 6
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"blink.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "Blinky/Core/Src/blink.c"
+  20              		.section	.text.GPIO_Init,"ax",%progbits
+  21              		.align	1
+  22              		.global	GPIO_Init
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	GPIO_Init:
+  28              	.LFB130:
+   1:Blinky/Core/Src/blink.c **** 
+   2:Blinky/Core/Src/blink.c **** #include "blink.h"
+   3:Blinky/Core/Src/blink.c **** 
+   4:Blinky/Core/Src/blink.c **** void GPIO_Init(void)
+   5:Blinky/Core/Src/blink.c **** {
+  29              		.loc 1 5 1
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 1, uses_anonymous_args = 0
+  33              		@ link register save eliminated.
+  34 0000 80B4     		push	{r7}
+  35              	.LCFI0:
+  36              		.cfi_def_cfa_offset 4
+  37              		.cfi_offset 7, -4
+  38 0002 00AF     		add	r7, sp, #0
+  39              	.LCFI1:
+  40              		.cfi_def_cfa_register 7
+   6:Blinky/Core/Src/blink.c ****   RCC->AHB1ENR &= ~0xF;
+  41              		.loc 1 6 6
+  42 0004 0E4B     		ldr	r3, .L2
+  43 0006 1B6B     		ldr	r3, [r3, #48]
+  44 0008 0D4A     		ldr	r2, .L2
+  45              		.loc 1 6 16
+  46 000a 23F00F03 		bic	r3, r3, #15
+  47 000e 1363     		str	r3, [r2, #48]
+   7:Blinky/Core/Src/blink.c ****   RCC->AHB1ENR |= 1 << 0;
+  48              		.loc 1 7 6
+  49 0010 0B4B     		ldr	r3, .L2
+  50 0012 1B6B     		ldr	r3, [r3, #48]
+  51 0014 0A4A     		ldr	r2, .L2
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s 			page 2
+
+
+  52              		.loc 1 7 16
+  53 0016 43F00103 		orr	r3, r3, #1
+  54 001a 1363     		str	r3, [r2, #48]
+   8:Blinky/Core/Src/blink.c **** 
+   9:Blinky/Core/Src/blink.c ****   GPIOA->MODER &= ~(3 << (2 * 5));
+  55              		.loc 1 9 8
+  56 001c 094B     		ldr	r3, .L2+4
+  57 001e 1B68     		ldr	r3, [r3]
+  58 0020 084A     		ldr	r2, .L2+4
+  59              		.loc 1 9 16
+  60 0022 23F44063 		bic	r3, r3, #3072
+  61 0026 1360     		str	r3, [r2]
+  10:Blinky/Core/Src/blink.c ****   GPIOA->MODER |= 1 << (2 * 5);
+  62              		.loc 1 10 8
+  63 0028 064B     		ldr	r3, .L2+4
+  64 002a 1B68     		ldr	r3, [r3]
+  65 002c 054A     		ldr	r2, .L2+4
+  66              		.loc 1 10 16
+  67 002e 43F48063 		orr	r3, r3, #1024
+  68 0032 1360     		str	r3, [r2]
+  11:Blinky/Core/Src/blink.c **** }
+  69              		.loc 1 11 1
+  70 0034 00BF     		nop
+  71 0036 BD46     		mov	sp, r7
+  72              	.LCFI2:
+  73              		.cfi_def_cfa_register 13
+  74              		@ sp needed
+  75 0038 5DF8047B 		ldr	r7, [sp], #4
+  76              	.LCFI3:
+  77              		.cfi_restore 7
+  78              		.cfi_def_cfa_offset 0
+  79 003c 7047     		bx	lr
+  80              	.L3:
+  81 003e 00BF     		.align	2
+  82              	.L2:
+  83 0040 00380240 		.word	1073887232
+  84 0044 00000240 		.word	1073872896
+  85              		.cfi_endproc
+  86              	.LFE130:
+  88              		.section	.text.SysTick_Init,"ax",%progbits
+  89              		.align	1
+  90              		.global	SysTick_Init
+  91              		.syntax unified
+  92              		.thumb
+  93              		.thumb_func
+  95              	SysTick_Init:
+  96              	.LFB131:
+  12:Blinky/Core/Src/blink.c **** 
+  13:Blinky/Core/Src/blink.c **** void SysTick_Init(void)
+  14:Blinky/Core/Src/blink.c **** {
+  97              		.loc 1 14 1
+  98              		.cfi_startproc
+  99              		@ args = 0, pretend = 0, frame = 0
+ 100              		@ frame_needed = 1, uses_anonymous_args = 0
+ 101              		@ link register save eliminated.
+ 102 0000 80B4     		push	{r7}
+ 103              	.LCFI4:
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s 			page 3
+
+
+ 104              		.cfi_def_cfa_offset 4
+ 105              		.cfi_offset 7, -4
+ 106 0002 00AF     		add	r7, sp, #0
+ 107              	.LCFI5:
+ 108              		.cfi_def_cfa_register 7
+  15:Blinky/Core/Src/blink.c ****   SysTick->CTRL = 0;
+ 109              		.loc 1 15 10
+ 110 0004 0A4B     		ldr	r3, .L5
+ 111              		.loc 1 15 17
+ 112 0006 0022     		movs	r2, #0
+ 113 0008 1A60     		str	r2, [r3]
+  16:Blinky/Core/Src/blink.c ****   SysTick->LOAD = 0xFFFFFF;
+ 114              		.loc 1 16 10
+ 115 000a 094B     		ldr	r3, .L5
+ 116              		.loc 1 16 17
+ 117 000c 6FF07F42 		mvn	r2, #-16777216
+ 118 0010 5A60     		str	r2, [r3, #4]
+  17:Blinky/Core/Src/blink.c ****   SysTick->VAL  = 0;
+ 119              		.loc 1 17 10
+ 120 0012 074B     		ldr	r3, .L5
+ 121              		.loc 1 17 17
+ 122 0014 0022     		movs	r2, #0
+ 123 0016 9A60     		str	r2, [r3, #8]
+  18:Blinky/Core/Src/blink.c ****   SysTick->CTRL |= 1 | (1 << 2);
+ 124              		.loc 1 18 10
+ 125 0018 054B     		ldr	r3, .L5
+ 126 001a 1B68     		ldr	r3, [r3]
+ 127 001c 044A     		ldr	r2, .L5
+ 128              		.loc 1 18 17
+ 129 001e 43F00503 		orr	r3, r3, #5
+ 130 0022 1360     		str	r3, [r2]
+  19:Blinky/Core/Src/blink.c **** }
+ 131              		.loc 1 19 1
+ 132 0024 00BF     		nop
+ 133 0026 BD46     		mov	sp, r7
+ 134              	.LCFI6:
+ 135              		.cfi_def_cfa_register 13
+ 136              		@ sp needed
+ 137 0028 5DF8047B 		ldr	r7, [sp], #4
+ 138              	.LCFI7:
+ 139              		.cfi_restore 7
+ 140              		.cfi_def_cfa_offset 0
+ 141 002c 7047     		bx	lr
+ 142              	.L6:
+ 143 002e 00BF     		.align	2
+ 144              	.L5:
+ 145 0030 10E000E0 		.word	-536813552
+ 146              		.cfi_endproc
+ 147              	.LFE131:
+ 149              		.section	.text.delayMS,"ax",%progbits
+ 150              		.align	1
+ 151              		.global	delayMS
+ 152              		.syntax unified
+ 153              		.thumb
+ 154              		.thumb_func
+ 156              	delayMS:
+ 157              	.LFB132:
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s 			page 4
+
+
+  20:Blinky/Core/Src/blink.c **** 
+  21:Blinky/Core/Src/blink.c **** void delayMS(uint16_t ms)
+  22:Blinky/Core/Src/blink.c **** {
+ 158              		.loc 1 22 1
+ 159              		.cfi_startproc
+ 160              		@ args = 0, pretend = 0, frame = 8
+ 161              		@ frame_needed = 1, uses_anonymous_args = 0
+ 162              		@ link register save eliminated.
+ 163 0000 80B4     		push	{r7}
+ 164              	.LCFI8:
+ 165              		.cfi_def_cfa_offset 4
+ 166              		.cfi_offset 7, -4
+ 167 0002 83B0     		sub	sp, sp, #12
+ 168              	.LCFI9:
+ 169              		.cfi_def_cfa_offset 16
+ 170 0004 00AF     		add	r7, sp, #0
+ 171              	.LCFI10:
+ 172              		.cfi_def_cfa_register 7
+ 173 0006 0346     		mov	r3, r0
+ 174 0008 FB80     		strh	r3, [r7, #6]	@ movhi
+  23:Blinky/Core/Src/blink.c ****   SysTick->LOAD = 16000 * (ms - 1);
+ 175              		.loc 1 23 31
+ 176 000a FB88     		ldrh	r3, [r7, #6]
+ 177 000c 013B     		subs	r3, r3, #1
+ 178              		.loc 1 23 25
+ 179 000e 4FF47A52 		mov	r2, #16000
+ 180 0012 03FB02F2 		mul	r2, r3, r2
+ 181              		.loc 1 23 10
+ 182 0016 094B     		ldr	r3, .L9
+ 183              		.loc 1 23 17
+ 184 0018 5A60     		str	r2, [r3, #4]
+  24:Blinky/Core/Src/blink.c ****   SysTick->VAL  = 0;
+ 185              		.loc 1 24 10
+ 186 001a 084B     		ldr	r3, .L9
+ 187              		.loc 1 24 17
+ 188 001c 0022     		movs	r2, #0
+ 189 001e 9A60     		str	r2, [r3, #8]
+  25:Blinky/Core/Src/blink.c ****   while (!(SysTick->CTRL & (1 << 16))) {}
+ 190              		.loc 1 25 9
+ 191 0020 00BF     		nop
+ 192              	.L8:
+ 193              		.loc 1 25 19 discriminator 1
+ 194 0022 064B     		ldr	r3, .L9
+ 195 0024 1B68     		ldr	r3, [r3]
+ 196              		.loc 1 25 26 discriminator 1
+ 197 0026 03F48033 		and	r3, r3, #65536
+ 198              		.loc 1 25 10 discriminator 1
+ 199 002a 002B     		cmp	r3, #0
+ 200 002c F9D0     		beq	.L8
+  26:Blinky/Core/Src/blink.c **** }...
+ 201              		.loc 1 26 1
+ 202 002e 00BF     		nop
+ 203 0030 00BF     		nop
+ 204 0032 0C37     		adds	r7, r7, #12
+ 205              	.LCFI11:
+ 206              		.cfi_def_cfa_offset 4
+ 207 0034 BD46     		mov	sp, r7
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s 			page 5
+
+
+ 208              	.LCFI12:
+ 209              		.cfi_def_cfa_register 13
+ 210              		@ sp needed
+ 211 0036 5DF8047B 		ldr	r7, [sp], #4
+ 212              	.LCFI13:
+ 213              		.cfi_restore 7
+ 214              		.cfi_def_cfa_offset 0
+ 215 003a 7047     		bx	lr
+ 216              	.L10:
+ 217              		.align	2
+ 218              	.L9:
+ 219 003c 10E000E0 		.word	-536813552
+ 220              		.cfi_endproc
+ 221              	.LFE132:
+ 223              		.text
+ 224              	.Letext0:
+ 225              		.file 2 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/machine/_defa
+ 226              		.file 3 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
+ 227              		.file 4 "Blinky/Drivers/CMSIS/Include/core_cm4.h"
+ 228              		.file 5 "Blinky/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s 			page 6
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 blink.c
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:21     .text.GPIO_Init:00000000 $t
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:27     .text.GPIO_Init:00000000 GPIO_Init
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:83     .text.GPIO_Init:00000040 $d
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:89     .text.SysTick_Init:00000000 $t
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:95     .text.SysTick_Init:00000000 SysTick_Init
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:145    .text.SysTick_Init:00000030 $d
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:150    .text.delayMS:00000000 $t
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:156    .text.delayMS:00000000 delayMS
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//cchsVtpp.s:219    .text.delayMS:0000003c $d
+
+NO UNDEFINED SYMBOLS
