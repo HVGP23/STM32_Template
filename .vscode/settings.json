@@ -1,5 +1,5 @@
 {
-  "project_name" : "Blinky",
+  "project_name": "Blinky",
   "C_Cpp_Runner.cCompilerPath": "clang",
   "C_Cpp_Runner.cppCompilerPath": "clang++",
   "C_Cpp_Runner.debuggerPath": "lldb",

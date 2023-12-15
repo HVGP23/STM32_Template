@@ -35,8 +35,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/garciaph/Documents/VSCode/STM_Project/STM32_Template",
-      "program": "/Users/garciaph/Documents/VSCode/STM_Project/STM32_Template/build/Debug/outDebug"
+      "cwd": "/Users/garciaph/Documents/STM_Project/STM32_Template/Blinky/Core/Src",
+      "program": "/Users/garciaph/Documents/STM_Project/STM32_Template/Blinky/Core/Src/build/Debug/outDebug"
     }
   ]
 }

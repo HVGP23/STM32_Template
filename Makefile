@@ -8,7 +8,9 @@ PROJECT_NAME =
 # make target should be named "main"
 TARGET = main
 DEBUG = 1
-OPT = -O0 # preferred optimization for edit->compile->debug
+
+# preferred optimization for edit->compile->debug
+OPT = -O0 
 
 # Build path
 BUILD_DIR = $(PROJECT_NAME)/build
