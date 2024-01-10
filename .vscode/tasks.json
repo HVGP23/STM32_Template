@@ -29,8 +29,8 @@
             "type": "shell",
             "command": "st-flash",
             "args": [
-                //"--connect-under-reset",
-                "--reset",
+                "--connect-under-reset",
+                //"--reset",
                 "write",
                 "./${config:project_name}/build/main.bin", 
                 "0x08000000"

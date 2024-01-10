@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s 			page 1
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccyzUFSZ.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s 			page 1
   43              		.loc 1 13 3
   44 0008 FFF7FEFF 		bl	SysTick_Init
   45              	.L2:
-ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s 			page 2
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccyzUFSZ.s 			page 2
 
 
   14:Blinky/Core/Src/main.c ****   while (1)
@@ -71,16 +71,16 @@ ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s 			page 1
   50              		.loc 1 16 16
   51 0012 83F02003 		eor	r3, r3, #32
   52 0016 5361     		str	r3, [r2, #20]
-  17:Blinky/Core/Src/main.c ****     delayMS(1000);
+  17:Blinky/Core/Src/main.c ****     delayMS(100);
   53              		.loc 1 17 5 discriminator 1
-  54 0018 4FF47A70 		mov	r0, #1000
-  55 001c FFF7FEFF 		bl	delayMS
-  16:Blinky/Core/Src/main.c ****     delayMS(1000);
+  54 0018 6420     		movs	r0, #100
+  55 001a FFF7FEFF 		bl	delayMS
+  16:Blinky/Core/Src/main.c ****     delayMS(100);
   56              		.loc 1 16 16
-  57 0020 00BF     		nop
-  58 0022 F3E7     		b	.L2
+  57 001e 00BF     		nop
+  58 0020 F4E7     		b	.L2
   59              	.L4:
-  60              		.align	2
+  60 0022 00BF     		.align	2
   61              	.L3:
   62 0024 00000240 		.word	1073872896
   63              		.cfi_endproc
@@ -91,14 +91,14 @@ ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s 			page 1
   69              		.file 3 "/Applications/ArmGNUToolchain/13.2.Rel1/arm-none-eabi/arm-none-eabi/include/sys/_stdint.h
   70              		.file 4 "Blinky/Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
   71              		.file 5 "Blinky/Core/Inc/blink.h"
-ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s 			page 3
+ARM GAS  /var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccyzUFSZ.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s:21     .text.main:00000000 $t
-/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s:27     .text.main:00000000 main
-/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccMdzcHd.s:62     .text.main:00000024 $d
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccyzUFSZ.s:21     .text.main:00000000 $t
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccyzUFSZ.s:27     .text.main:00000000 main
+/var/folders/ht/c3vz8w453bj15v16clp2n4q439hggx/T//ccyzUFSZ.s:62     .text.main:00000024 $d
 
 UNDEFINED SYMBOLS
 GPIO_Init
